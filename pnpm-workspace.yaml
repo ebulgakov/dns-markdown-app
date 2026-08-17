@@ -2,3 +2,6 @@ overrides:
   "uuid": "^14.0.0"
 allowBuilds:
   unrs-resolver: false
+minimumReleaseAgeExclude:
+  - expo-constants@57.0.12
+  - expo-router@57.0.14
