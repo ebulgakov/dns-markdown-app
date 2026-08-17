@@ -1,5 +1,6 @@
 import * as Device from "expo-device";
 import { Platform, StyleSheet } from "react-native";
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import { AnimatedIcon } from "@/components/animated-icon";
@@ -34,6 +35,7 @@ export default function HomeScreen() {
       <SafeAreaView style={styles.safeArea}>
         <ThemedView style={styles.heroSection}>
           <AnimatedIcon />
+          <AntDesign name="aim" size={24} color="black" />
           <ThemedText type="title" className="text-white text-2xl text-center">
             Welcome to&nbsp;Expo
           </ThemedText>
