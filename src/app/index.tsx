@@ -11,7 +11,7 @@ export default function HomeScreen() {
         <View>
           <AntDesign name="aim" size={24} color="black" />
           <Text>Welcome to&nbsp;Expo</Text>
-          <Link href="/explore">Explore</Link>
+          <Link href="/catalog">Explore</Link>
         </View>
 
         <Text>get started</Text>
