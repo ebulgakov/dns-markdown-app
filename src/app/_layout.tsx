@@ -1,18 +1,57 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useColorScheme } from "react-native";
+import AntDesign from "@expo/vector-icons/AntDesign";
 
-import { AnimatedSplashOverlay } from "@/components/animated-icon";
-import AppTabs from "@/components/app-tabs";
+import { Tabs } from "expo-router";
 
 SplashScreen.preventAutoHideAsync();
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <AnimatedSplashOverlay />
-      <AppTabs />
-    </ThemeProvider>
+    <Tabs>
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Главная",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => <AntDesign name="home" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="catalog"
+        options={{
+          title: "Каталог",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => <AntDesign name="inbox" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="today"
+        options={{
+          title: "Новое",
+          tabBarIcon: ({ color, size }) => <AntDesign name="bulb" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="analysis"
+        options={{
+          title: "Аналитика",
+          tabBarIcon: ({ color, size }) => <AntDesign name="bar-chart" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="favorites"
+        options={{
+          title: "Избранное",
+          tabBarIcon: ({ color, size }) => <AntDesign name="star" size={size} color={color} />
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Профиль",
+          tabBarIcon: ({ color, size }) => <AntDesign name="user" size={size} color={color} />
+        }}
+      />
+    </Tabs>
   );
 }
