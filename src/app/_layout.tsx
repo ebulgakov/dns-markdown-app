@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import AntDesign from "@expo/vector-icons/AntDesign";
 
@@ -6,6 +7,10 @@ import { Tabs } from "expo-router";
 SplashScreen.preventAutoHideAsync();
 
 export default function TabLayout() {
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
+
   return (
     <Tabs>
       <Tabs.Screen
