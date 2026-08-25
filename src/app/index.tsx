@@ -1,10 +1,15 @@
-import { StyleSheet, View, Text } from "react-native";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { SafeAreaView } from "react-native-safe-area-context";
+import * as Haptics from "expo-haptics";
 
 import { Link } from "expo-router";
 
 export default function HomeScreen() {
+  const onToggleButton = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  };
+
   return (
     <View style={styles.container}>
       <SafeAreaView>
@@ -15,6 +20,9 @@ export default function HomeScreen() {
         </View>
 
         <Text>get started</Text>
+        <TouchableOpacity onPress={onToggleButton} className="bg-teal-200 text-red-500">
+          <Text>Toggle with Haptics</Text>
+        </TouchableOpacity>
       </SafeAreaView>
     </View>
   );
