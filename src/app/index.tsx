@@ -4,10 +4,29 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
 
 import { Link } from "expo-router";
+import { registerForPushNotificationsAsync } from "@/utils/register-for-push-notifications-async";
+import * as Notifications from "expo-notifications";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
     Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Medium);
+  };
+
+  const onRequestPermission = async () => {
+    const result = await registerForPushNotificationsAsync();
+
+    if (result === "granted") {
+      await Notifications.scheduleNotificationAsync({
+        content: {
+          title: "Push Notification",
+          body: "This is a test notification"
+        },
+        trigger: {
+          type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
+          seconds: 5
+        }
+      });
+    }
   };
 
   return (
@@ -19,7 +38,9 @@ export default function HomeScreen() {
           <Link href="/catalog">Explore</Link>
         </View>
 
-        <Text>get started</Text>
+        <TouchableOpacity onPress={onRequestPermission} className="bg-blue-200 rounded mb-2">
+          <Text className="text-blue-700 text-4xl">Request Permission</Text>
+        </TouchableOpacity>
         <TouchableOpacity onPress={onToggleButton} className="bg-teal-200 text-red-500">
           <Text>Toggle with Haptics</Text>
         </TouchableOpacity>
