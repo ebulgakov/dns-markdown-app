@@ -1,3 +1,5 @@
+import "@/global.css";
+
 import { useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import AntDesign from "@expo/vector-icons/AntDesign";
