@@ -1,10 +1,9 @@
 import "@/global.css";
 
-import { useEffect } from "react";
-import * as SplashScreen from "expo-splash-screen";
 import AntDesign from "@expo/vector-icons/AntDesign";
-
 import { Tabs } from "expo-router";
+import * as SplashScreen from "expo-splash-screen";
+import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 

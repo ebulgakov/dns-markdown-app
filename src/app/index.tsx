@@ -1,11 +1,11 @@
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { SafeAreaView } from "react-native-safe-area-context";
 import * as Haptics from "expo-haptics";
-
-import { Link } from "expo-router";
-import { registerForPushNotificationsAsync } from "@/utils/register-for-push-notifications-async";
 import * as Notifications from "expo-notifications";
+import { Link } from "expo-router";
+import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
+
+import { registerForPushNotificationsAsync } from "@/utils/register-for-push-notifications-async";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
