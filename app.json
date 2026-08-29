@@ -48,7 +48,14 @@
           "color": "#3981f6"
         }
       ],
-      "expo-font"
+      "expo-font",
+      [
+        "@clerk/expo",
+        {
+          "appleSignIn": true
+        }
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true,
