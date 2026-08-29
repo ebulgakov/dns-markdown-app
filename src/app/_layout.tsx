@@ -4,8 +4,7 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 import { Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { tokenCache } from "@clerk/expo/token-cache";
-import { ClerkProvider } from "@clerk/expo";
+import { ClerkProvider } from "@/shared/providers";
 
 const publishableKey = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY!;
 
@@ -21,7 +20,7 @@ export default function TabLayout() {
   }, []);
 
   return (
-    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
+    <ClerkProvider>
       <Tabs>
         <Tabs.Screen
           name="index"
