@@ -1,10 +1,11 @@
 import { useSignIn } from "@clerk/expo";
-import { Link, Redirect, useRouter } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SignInScreen() {
   const { signIn, errors, fetchStatus } = useSignIn();
+  const router = useRouter();
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -16,8 +17,7 @@ export default function SignInScreen() {
 
     if (signIn.status === "complete") {
       await signIn.finalize();
-
-      return <Redirect href="/profile" />;
+      router.replace("/profile");
     }
   };
 

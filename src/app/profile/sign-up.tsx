@@ -1,9 +1,10 @@
 import { useSignUp } from "@clerk/expo";
-import { Link, Redirect } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SignUpScreen() {
+  const router = useRouter();
   const { signUp, errors, fetchStatus } = useSignUp();
 
   const [emailAddress, setEmailAddress] = useState("");
@@ -25,8 +26,7 @@ export default function SignUpScreen() {
 
     if (signUp.status === "complete") {
       await signUp.finalize();
-
-      return <Redirect href="/profile" />;
+      router.replace("/profile");
     }
   };
 
@@ -34,12 +34,12 @@ export default function SignUpScreen() {
     return (
       <View style={{ flex: 1, padding: 24, justifyContent: "center" }}>
         <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>
-          Verify your email
+          Подтвердите ваш email
         </Text>
         <TextInput
           value={code}
           onChangeText={setCode}
-          placeholder="Enter verification code"
+          placeholder="Введите код подтверждения"
           keyboardType="number-pad"
           style={{
             borderWidth: 1,
@@ -62,7 +62,7 @@ export default function SignUpScreen() {
             alignItems: "center"
           }}
         >
-          <Text style={{ color: "white", fontWeight: "600" }}>Verify</Text>
+          <Text style={{ color: "white", fontWeight: "600" }}>Подтвердить</Text>
         </TouchableOpacity>
       </View>
     );
@@ -70,7 +70,7 @@ export default function SignUpScreen() {
 
   return (
     <View style={{ flex: 1, padding: 24, justifyContent: "center" }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>Create an account</Text>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>Создать аккаунт</Text>
       <TextInput
         value={emailAddress}
         onChangeText={setEmailAddress}
@@ -88,7 +88,7 @@ export default function SignUpScreen() {
       <TextInput
         value={password}
         onChangeText={setPassword}
-        placeholder="Password"
+        placeholder="Пароль"
         secureTextEntry
         style={{
           borderWidth: 1,
@@ -115,10 +115,10 @@ export default function SignUpScreen() {
           marginBottom: 16
         }}
       >
-        <Text style={{ color: "white", fontWeight: "600" }}>Sign up</Text>
+        <Text style={{ color: "white", fontWeight: "600" }}>Зарегистрироваться</Text>
       </TouchableOpacity>
       <Link href="/profile/sign-in" style={{ textAlign: "center", color: "#6C47FF" }}>
-        Already have an account? Sign in
+        Уже есть аккаунт? Войти
       </Link>
       <View nativeID="clerk-captcha" />
     </View>
