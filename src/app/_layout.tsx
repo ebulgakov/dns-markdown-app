@@ -55,6 +55,7 @@ export default function TabLayout() {
         name="profile"
         options={{
           title: "Профиль",
+          headerShown: false,
           tabBarIcon: ({ color, size }) => <AntDesign name="user" size={size} color={color} />
         }}
       />
