@@ -1,11 +1,10 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import * as Haptics from "expo-haptics";
-import * as Notifications from "expo-notifications";
 import { Link } from "expo-router";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { registerForPushNotificationsAsync } from "@/utils/register-for-push-notifications-async";
+import { registerForPushNotificationsAsync, scheduleTestNotificationAsync } from "@/shared/notifications";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
@@ -16,16 +15,7 @@ export default function HomeScreen() {
     const result = await registerForPushNotificationsAsync();
 
     if (result === "granted") {
-      await Notifications.scheduleNotificationAsync({
-        content: {
-          title: "Push Notification",
-          body: "This is a test notification"
-        },
-        trigger: {
-          type: Notifications.SchedulableTriggerInputTypes.TIME_INTERVAL,
-          seconds: 5
-        }
-      });
+      await scheduleTestNotificationAsync();
     }
   };
 
