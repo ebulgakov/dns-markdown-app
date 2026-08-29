@@ -1,5 +1,7 @@
 import "@/global.css";
 
+import { DarkTheme, DefaultTheme, ThemeProvider } from "expo-router";
+import { useColorScheme } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
 import { Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -7,11 +9,7 @@ import { useEffect } from "react";
 
 SplashScreen.preventAutoHideAsync();
 
-export default function TabLayout() {
-  useEffect(() => {
-    SplashScreen.hideAsync();
-  }, []);
-
+function AppTabs() {
   return (
     <Tabs>
       <Tabs.Screen
@@ -60,5 +58,19 @@ export default function TabLayout() {
         }}
       />
     </Tabs>
+  );
+}
+
+export default function TabLayout() {
+  const colorScheme = useColorScheme();
+
+  useEffect(() => {
+    SplashScreen.hideAsync();
+  }, []);
+
+  return (
+    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <AppTabs />
+    </ThemeProvider>
   );
 }
