@@ -4,26 +4,29 @@
     "slug": "dns-markdown-app",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/icon.png",
     "scheme": "dnsmarkdownapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/icons/icon.png"
     },
     "android": {
       "package": "com.ebulgakov.dnsmarkdownapp",
       "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/images/android-icon-foreground.png",
-        "backgroundImage": "./assets/images/android-icon-background.png",
-        "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        "foregroundImage": "./assets/icons/adaptive-icon.png",
+        "backgroundColor": "#3981f6",
+        "monochromeImage": "./assets/icons/adaptive-icon-monochrome.png"
+      },
+      "notification": {
+        "icon": "./assets/icons/notification-icon.png",
+        "color": "#3981f6"
       },
       "predictiveBackGestureEnabled": false
     },
     "web": {
       "output": "static",
-      "favicon": "./assets/images/favicon.png",
+      "favicon": "./assets/icons/favicon.png",
       "bundler": "metro"
     },
     "plugins": [
@@ -31,17 +34,18 @@
       [
         "expo-splash-screen",
         {
-          "backgroundColor": "#208AEF",
-          "image": "./assets/images/splash-icon.png",
-          "imageWidth": 76
+          "image": "./assets/icons/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#3981f6"
         }
       ],
       "expo-status-bar",
       [
         "expo-notifications",
         {
-          "icon": "./assets/images/android-icon-monochrome.png",
-          "color": "#208AEF"
+          "icon": "./assets/icons/notification-icon.png",
+          "color": "#3981f6"
         }
       ],
       "expo-font"
