@@ -1,12 +1,10 @@
 import { useSignUp } from "@clerk/expo";
-import { Link, useRouter } from "expo-router";
-import type { Href } from "expo-router";
+import { Link, Redirect } from "expo-router";
 import { useState } from "react";
 import { Text, TextInput, TouchableOpacity, View } from "react-native";
 
 export default function SignUpScreen() {
   const { signUp, errors, fetchStatus } = useSignUp();
-  const router = useRouter();
 
   const [emailAddress, setEmailAddress] = useState("");
   const [password, setPassword] = useState("");
@@ -27,6 +25,8 @@ export default function SignUpScreen() {
 
     if (signUp.status === "complete") {
       await signUp.finalize();
+
+      return <Redirect href="/profile" />;
     }
   };
 
@@ -50,7 +50,7 @@ export default function SignUpScreen() {
           }}
         />
         {errors?.fields?.code && (
-          <Text style={{ color: "red", marginBottom: 8 }}>{errors.fields.code[0]?.message}</Text>
+          <Text style={{ color: "red", marginBottom: 8 }}>{errors.fields.code?.message}</Text>
         )}
         <TouchableOpacity
           onPress={onVerify}
@@ -99,12 +99,10 @@ export default function SignUpScreen() {
         }}
       />
       {errors?.fields?.emailAddress && (
-        <Text style={{ color: "red", marginBottom: 8 }}>
-          {errors.fields.emailAddress[0]?.message}
-        </Text>
+        <Text style={{ color: "red", marginBottom: 8 }}>{errors.fields.emailAddress?.message}</Text>
       )}
       {errors?.fields?.password && (
-        <Text style={{ color: "red", marginBottom: 8 }}>{errors.fields.password[0]?.message}</Text>
+        <Text style={{ color: "red", marginBottom: 8 }}>{errors.fields.password?.message}</Text>
       )}
       <TouchableOpacity
         onPress={onSignUp}

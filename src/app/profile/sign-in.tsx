@@ -23,7 +23,7 @@ export default function SignInScreen() {
 
   return (
     <View style={{ flex: 1, padding: 24, justifyContent: "center" }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>Sign in</Text>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>Авторизация</Text>
       <TextInput
         value={emailAddress}
         onChangeText={setEmailAddress}
@@ -32,6 +32,7 @@ export default function SignInScreen() {
         keyboardType="email-address"
         style={{
           borderWidth: 1,
+          color: "black",
           borderColor: "#ccc",
           borderRadius: 8,
           padding: 12,
@@ -41,10 +42,11 @@ export default function SignInScreen() {
       <TextInput
         value={password}
         onChangeText={setPassword}
-        placeholder="Password"
+        placeholder="Пароль"
         secureTextEntry
         style={{
           borderWidth: 1,
+          color: "black",
           borderColor: "#ccc",
           borderRadius: 8,
           padding: 12,
@@ -52,12 +54,10 @@ export default function SignInScreen() {
         }}
       />
       {errors?.fields?.identifier && (
-        <Text className="text-black border-2 border-amber-100">
-          {JSON.stringify(errors.fields)}
-        </Text>
+        <Text className="text-red-500 my-2">{errors.fields.identifier?.message}</Text>
       )}
       {errors?.fields?.password && (
-        <Text className="text-black border-2 border-red-100">{JSON.stringify(errors.fields)}</Text>
+        <Text className="text-red-500 my-2">{errors.fields.password?.message}</Text>
       )}
       <TouchableOpacity
         onPress={onSignIn}
@@ -70,10 +70,10 @@ export default function SignInScreen() {
           marginBottom: 16
         }}
       >
-        <Text style={{ color: "black", fontWeight: "600" }}>Sign in</Text>
+        <Text style={{ color: "black", fontWeight: "600" }}>Войти</Text>
       </TouchableOpacity>
       <Link href="/profile/sign-up" style={{ textAlign: "center", color: "#6C47FF" }}>
-        Don't have an account? Sign up
+        Нет аккаунта? Зарегистрироваться
       </Link>
     </View>
   );
