@@ -1,4 +1,4 @@
-import { ClerkProvider as ClerkProviderBase, ClerkLoaded, ClerkLoading } from "@clerk/expo";
+import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import { View, ActivityIndicator } from "react-native";
 
@@ -8,19 +8,19 @@ if (!publishableKey) {
   throw new Error("EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY is not set.");
 }
 
-type ClerkProviderProps = {
+type ExpoClerkProviderProps = {
   children: React.ReactNode;
 };
 
-export function ClerkProvider({ children }: ClerkProviderProps) {
+export function ExpoClerkProvider({ children }: ExpoClerkProviderProps) {
   return (
-    <ClerkProviderBase publishableKey={publishableKey} tokenCache={tokenCache}>
+    <ClerkProvider publishableKey={publishableKey} tokenCache={tokenCache}>
       <ClerkLoading>
         <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
           <ActivityIndicator size="large" />
         </View>
       </ClerkLoading>
       <ClerkLoaded>{children}</ClerkLoaded>
-    </ClerkProviderBase>
+    </ClerkProvider>
   );
 }

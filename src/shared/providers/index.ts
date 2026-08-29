@@ -1,1 +1,1 @@
-export { ClerkProvider } from "./clerk-provider";
+export { ExpoClerkProvider } from "./expo-clerk-provider";
