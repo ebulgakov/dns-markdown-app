@@ -1,6 +1,6 @@
 import { useAuth } from "@clerk/expo";
-import { View, Text } from "react-native";
 import { Redirect } from "expo-router";
+import { View, Text } from "react-native";
 
 export default function ProfileScreen() {
   const { isSignedIn, isLoaded } = useAuth();

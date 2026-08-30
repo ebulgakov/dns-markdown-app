@@ -1,5 +1,5 @@
-import { TouchableOpacity, Text } from "react-native";
 import { useAuth } from "@clerk/expo";
+import { TouchableOpacity, Text } from "react-native";
 
 function SignOut() {
   const { signOut } = useAuth();
