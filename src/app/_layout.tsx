@@ -7,6 +7,8 @@ import { Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 
+import { ExpoClerkProvider } from "@/shared/providers";
+
 SplashScreen.preventAutoHideAsync();
 
 function AppTabs() {
@@ -69,8 +71,10 @@ export default function TabLayout() {
   }, []);
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <AppTabs />
-    </ThemeProvider>
+    <ExpoClerkProvider>
+      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+        <AppTabs />
+      </ThemeProvider>
+    </ExpoClerkProvider>
   );
 }
