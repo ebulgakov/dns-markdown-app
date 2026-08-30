@@ -1,11 +1,11 @@
 import "@/global.css";
 
-import { DarkTheme, DefaultTheme, ThemeProvider } from "expo-router";
-import { useColorScheme } from "react-native";
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { Tabs } from "expo-router";
+import { DarkTheme, DefaultTheme, ThemeProvider, Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
+import { useColorScheme } from "react-native";
+import { KeyboardProvider } from "react-native-keyboard-controller";
 
 import { ExpoClerkProvider } from "@/shared/providers";
 
@@ -73,7 +73,9 @@ export default function TabLayout() {
   return (
     <ExpoClerkProvider>
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <AppTabs />
+        <KeyboardProvider statusBarTranslucent navigationBarTranslucent>
+          <AppTabs />
+        </KeyboardProvider>
       </ThemeProvider>
     </ExpoClerkProvider>
   );

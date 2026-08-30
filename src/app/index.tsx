@@ -4,7 +4,10 @@ import { Link } from "expo-router";
 import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import { registerForPushNotificationsAsync, scheduleTestNotificationAsync } from "@/shared/notifications";
+import {
+  registerForPushNotificationsAsync,
+  scheduleTestNotificationAsync
+} from "@/shared/notifications";
 
 export default function HomeScreen() {
   const onToggleButton = () => {

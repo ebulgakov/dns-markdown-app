@@ -1,4 +1,5 @@
 import { Stack } from "expo-router";
+
 import { SignOut } from "@/features/sign-out";
 
 export default function RootLayout() {
