@@ -4,7 +4,7 @@ import * as React from "react";
 import { Platform, Pressable, type PressableProps, View, type ViewStyle } from "react-native";
 
 import { cn } from "@/lib/cn";
-import { useColorScheme } from "@/lib/useColorScheme";
+import { useColorScheme } from "@/lib/use-color-scheme";
 import { COLORS } from "@/theme/colors";
 
 import { TextClassContext } from "./text";

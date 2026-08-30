@@ -54,12 +54,14 @@ function withOpacity(variableName) {
     if (opacityValue !== undefined) {
       return platformSelect({
         ios: `rgb(var(--${variableName}) / ${opacityValue})`,
-        android: `rgb(var(--android-${variableName}) / ${opacityValue})`
+        android: `rgb(var(--android-${variableName}) / ${opacityValue})`,
+        default: `rgb(var(--${variableName}) / ${opacityValue})`
       });
     }
     return platformSelect({
       ios: `rgb(var(--${variableName}))`,
-      android: `rgb(var(--android-${variableName}))`
+      android: `rgb(var(--android-${variableName}))`,
+      default: `rgb(var(--${variableName}))`
     });
   };
 }

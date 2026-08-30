@@ -19,7 +19,7 @@ FSD target shape: `shared → entities → features → widgets`.
 - `src/widgets/` — app-shell composition (navbar/tab-bar chrome) used from `app/`. *(not created yet)*
 - `src/shared/` — cross-feature infra with no business logic (providers, notifications).
 - `src/theme/` — theme source of truth (`colors.ts`).
-- `src/lib/` — small reusable helpers (e.g. `cn.ts`, `useColorScheme.tsx`).
+- `src/lib/` — small reusable helpers (e.g. `cn.ts`, `use-color-scheme.tsx`).
 
 # File naming
 

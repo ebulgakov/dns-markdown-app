@@ -6,7 +6,7 @@ import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 
-import { useColorScheme } from "@/lib/useColorScheme";
+import { useColorScheme } from "@/lib/use-color-scheme";
 import { ExpoClerkProvider } from "@/shared/providers";
 import { NAV_THEME } from "@/theme/nav-theme";
 
