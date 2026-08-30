@@ -1,13 +1,14 @@
 import "@/global.css";
 
 import AntDesign from "@expo/vector-icons/AntDesign";
-import { DarkTheme, DefaultTheme, ThemeProvider, Tabs } from "expo-router";
+import { ThemeProvider, Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
-import { useColorScheme } from "react-native";
 import { KeyboardProvider } from "react-native-keyboard-controller";
 
+import { useColorScheme } from "@/lib/useColorScheme";
 import { ExpoClerkProvider } from "@/shared/providers";
+import { NAV_THEME } from "@/theme/nav-theme";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -64,7 +65,7 @@ function AppTabs() {
 }
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
+  const { isDarkColorScheme } = useColorScheme();
 
   useEffect(() => {
     SplashScreen.hideAsync();
@@ -72,7 +73,7 @@ export default function TabLayout() {
 
   return (
     <ExpoClerkProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
+      <ThemeProvider value={isDarkColorScheme ? NAV_THEME.dark : NAV_THEME.light}>
         <KeyboardProvider statusBarTranslucent navigationBarTranslucent>
           <AppTabs />
         </KeyboardProvider>

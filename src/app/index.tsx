@@ -1,13 +1,14 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import * as Haptics from "expo-haptics";
 import { Link } from "expo-router";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 import {
   registerForPushNotificationsAsync,
   scheduleTestNotificationAsync
 } from "@/shared/notifications";
+import { Text } from "@/shared/ui/text";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
@@ -27,7 +28,7 @@ export default function HomeScreen() {
       <SafeAreaView>
         <View>
           <AntDesign name="aim" size={24} color="black" />
-          <Text>Welcome to&nbsp;Expo</Text>
+          <Text color="primary">Welcome to&nbsp;Expo</Text>
           <Link href="/catalog">Explore</Link>
         </View>
 
