@@ -9,6 +9,7 @@ import {
   scheduleTestNotificationAsync
 } from "@/shared/notifications";
 import { Text } from "@/shared/ui/text";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
@@ -24,7 +25,7 @@ export default function HomeScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <LinearGradient colors={["#4c669f", "#3b5998", "#192f6a"]} style={styles.container}>
       <SafeAreaView>
         <View>
           <AntDesign name="aim" size={24} color="black" />
@@ -39,7 +40,7 @@ export default function HomeScreen() {
           <Text>Toggle with Haptics</Text>
         </TouchableOpacity>
       </SafeAreaView>
-    </View>
+    </LinearGradient>
   );
 }
 
