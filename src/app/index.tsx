@@ -10,6 +10,7 @@ import {
 } from "@/shared/notifications";
 import { Text } from "@/shared/ui/text";
 import { LinearGradient } from "expo-linear-gradient";
+import { Search } from "@/features/search";
 
 export default function HomeScreen() {
   const onToggleButton = () => {
@@ -28,8 +29,9 @@ export default function HomeScreen() {
     <LinearGradient colors={["#4c669f", "#3b5998", "#192f6a"]} style={styles.container}>
       <SafeAreaView>
         <View>
+          <Search />
           <AntDesign name="aim" size={24} color="black" />
-          <Text color="primary">Welcome to&nbsp;Expo</Text>
+          <Text color="primary">Welcome to&nbsp;Expo!</Text>
           <Link href="/catalog">Explore</Link>
         </View>
 
