@@ -1,6 +1,7 @@
 import "@/global.css";
 
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useFonts } from "expo-font";
 import { ThemeProvider, Tabs } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { useEffect } from "react";
@@ -8,6 +9,7 @@ import { KeyboardProvider } from "react-native-keyboard-controller";
 
 import { useColorScheme } from "@/lib/use-color-scheme";
 import { ExpoClerkProvider } from "@/shared/providers";
+import { FONT_ASSETS } from "@/theme/fonts";
 import { NAV_THEME } from "@/theme/nav-theme";
 
 SplashScreen.preventAutoHideAsync();
@@ -66,10 +68,17 @@ function AppTabs() {
 
 export default function TabLayout() {
   const { isDarkColorScheme } = useColorScheme();
+  const [fontsLoaded, fontError] = useFonts(FONT_ASSETS);
 
   useEffect(() => {
-    SplashScreen.hideAsync();
-  }, []);
+    if (fontsLoaded || fontError) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded, fontError]);
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <ExpoClerkProvider>

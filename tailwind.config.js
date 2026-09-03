@@ -43,6 +43,13 @@ module.exports = {
       },
       borderWidth: {
         hairline: hairlineWidth()
+      },
+      fontFamily: {
+        sans: ["Roboto_400Regular"],
+        "sans-medium": ["Roboto_500Medium"],
+        "sans-semibold": ["Roboto_600SemiBold"],
+        "sans-bold": ["Roboto_700Bold"],
+        mono: ["RobotoMono_400Regular"]
       }
     }
   },
