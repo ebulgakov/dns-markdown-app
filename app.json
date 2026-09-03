@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "dns-markdown-app",
+    "name": "DNS Markdown",
     "slug": "dns-markdown-app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,8 @@
     "scheme": "dnsmarkdownapp",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/icons/icon.png"
+      "icon": "./assets/icons/icon.png",
+      "bundleIdentifier": "com.ebulgakov.dnsmarkdownapp"
     },
     "android": {
       "package": "com.ebulgakov.dnsmarkdownapp",
