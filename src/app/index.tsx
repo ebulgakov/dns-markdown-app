@@ -31,7 +31,21 @@ export default function HomeScreen() {
         <View>
           <Search />
           <AntDesign name="aim" size={24} color="black" />
-          <Text color="primary">Welcome to&nbsp;Expo!</Text>
+          <Text color="primary" className="font-mono">
+            Welcome to&nbsp;Expo!
+          </Text>
+          <Text color="primary" className="font-sans">
+            Welcome to&nbsp;Expo!
+          </Text>
+          <Text color="primary" className="font-sans-medium">
+            Welcome to&nbsp;Expo!
+          </Text>
+          <Text color="primary" className="font-sans-semibold">
+            Welcome to&nbsp;Expo!
+          </Text>
+          <Text color="primary" className="font-sans-bold">
+            Welcome to&nbsp;Expo!
+          </Text>
           <Link href="/catalog">Explore</Link>
         </View>
 
