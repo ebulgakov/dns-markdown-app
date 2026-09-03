@@ -61,7 +61,8 @@
     "start": "expo start --dev-client --clear",
     "android": "expo run:android",
     "ios": "expo run:ios",
-    "web": "expo start --web",
+    "prebuild:android": "expo prebuild --platform android --clean",
+    "prebuild:ios": "expo prebuild --platform ios --clean",
     "lint": "expo lint",
     "lint:fix": "expo lint --fix"
   },

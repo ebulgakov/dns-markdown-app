@@ -25,11 +25,6 @@
       },
       "predictiveBackGestureEnabled": false
     },
-    "web": {
-      "output": "static",
-      "favicon": "./assets/icons/favicon.png",
-      "bundler": "metro"
-    },
     "plugins": [
       "expo-router",
       [
