@@ -4,7 +4,7 @@ import { Text as RNText } from "react-native";
 
 import { cn } from "@/lib/cn";
 
-const textVariants = cva("text-foreground", {
+const textVariants = cva("text-foreground font-sans", {
   variants: {
     variant: {
       largeTitle: "text-4xl",

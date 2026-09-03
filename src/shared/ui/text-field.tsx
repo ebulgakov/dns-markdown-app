@@ -57,7 +57,7 @@ const TextField = React.forwardRef<TextInput, TextFieldProps>(
           <TextInput
             ref={ref}
             className={cn(
-              "native:h-11 flex-1 py-2.5 text-[17px] leading-6 text-foreground",
+              "native:h-11 flex-1 py-2.5 text-[17px] leading-6 text-foreground font-sans",
               className
             )}
             accessibilityHint={Platform.OS === "ios" ? errorMessage : props.accessibilityHint}

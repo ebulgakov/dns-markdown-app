@@ -1,7 +1,7 @@
-import { DefaultTheme } from "expo-router";
-import type { Theme } from "expo-router";
-
 import { COLORS } from "@/theme/colors";
+import { THEME_FONTS } from "@/theme/fonts";
+
+import type { Theme } from "expo-router";
 
 const NAV_THEME: { light: Theme; dark: Theme } = {
   light: {
@@ -14,7 +14,7 @@ const NAV_THEME: { light: Theme; dark: Theme } = {
       border: COLORS.light.border,
       notification: COLORS.light.destructive
     },
-    fonts: DefaultTheme.fonts
+    fonts: THEME_FONTS
   },
   dark: {
     dark: true,
@@ -26,7 +26,7 @@ const NAV_THEME: { light: Theme; dark: Theme } = {
       border: COLORS.dark.border,
       notification: COLORS.dark.destructive
     },
-    fonts: DefaultTheme.fonts
+    fonts: THEME_FONTS
   }
 };
 
