@@ -93,7 +93,7 @@ one (e.g. `src/shared/testing/`), not before — don't build it speculatively.
    changed — don't retroactively expand coverage repo-wide unless asked.
 3. `pnpm test` (or `pnpm test:watch` while iterating) until green.
 4. `pnpm lint:fix`, then `pnpm lint`.
-5. `npx tsc --noEmit` — test files must type-check too; no `any` to silence
+5. `pnpm type-check` — test files must type-check too; no `any` to silence
    mock typing, use `jest.Mock`/`jest.MockedFunction` or cast through the
    mocked module's own type.
 

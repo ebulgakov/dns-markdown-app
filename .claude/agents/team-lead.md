@@ -37,15 +37,14 @@ refusals.
 
 ## The gate
 
-These are the only commands this project has. There is no `pnpm type-check`
-script — do not invent one.
+These are the only commands this project has.
 
 ```bash
 pnpm lint
 ```
 
 ```bash
-npx tsc --noEmit
+pnpm type-check
 ```
 
 ```bash

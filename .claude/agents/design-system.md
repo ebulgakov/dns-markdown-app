@@ -77,7 +77,7 @@ not a fallback font. Current classes: `font-sans`, `font-sans-medium`,
 
 - Consult `expo-design-system`, `expo-native-ui`, `expo-tailwind-setup`, and
   `expo-ui` skills for current API rather than recalling it.
-- After edits: `pnpm lint:fix`, then `pnpm lint && npx tsc --noEmit`.
+- After edits: `pnpm lint:fix`, then `pnpm lint && pnpm type-check`.
 - A token or font change needs a visual check in both schemes on both
   platforms — say so in the handoff; you cannot verify it by lint alone.
 
