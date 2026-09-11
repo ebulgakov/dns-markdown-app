@@ -19,10 +19,12 @@ and the owner.
 | `src/theme/*`, `src/global.css`, `tailwind.config.js`, `src/shared/ui/*` | design-system |
 | `src/app/**`, `app.json`, `eas.json`, native config, prebuild, deps with native code | expo-router-native |
 | `src/features/*`, `src/lib/*`, `src/shared/providers/*`, `src/shared/notifications/*` | rn-feature |
+| Tests (`**/__tests__/**`) | qa |
 
 Cross-cutting change: pick ONE primary owner, others consult. A typical feature
 runs design-system (missing primitive/token) → rn-feature (slice) →
-expo-router-native (route + wiring).
+expo-router-native (route + wiring) → qa (tests). qa is a follow-up consult on
+an owner's finished slice, not the primary owner of a feature task.
 
 ## Before decomposing: challenge the request
 
@@ -35,9 +37,8 @@ refusals.
 
 ## The gate
 
-These are the only commands this project has. There is no `pnpm test` and no
-`pnpm type-check` script — do not invent them and do not accept "tests pass" as
-evidence from any agent.
+These are the only commands this project has. There is no `pnpm type-check`
+script — do not invent one.
 
 ```bash
 pnpm lint
@@ -46,6 +47,14 @@ pnpm lint
 ```bash
 npx tsc --noEmit
 ```
+
+```bash
+pnpm test
+```
+
+`pnpm test` (jest-expo) only exists for files with a colocated `__tests__/`
+— absence of tests for a change isn't a gate failure by itself, but "tests
+pass" is only real evidence when a qa pass actually ran `pnpm test` green.
 
 Behavior that lint and the type checker cannot see (theme in both schemes on
 both platforms, navigation, notification permissions, auth flows) is verified on

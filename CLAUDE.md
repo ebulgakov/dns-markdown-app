@@ -10,6 +10,7 @@ Package manager is pnpm (pnpm-lock.yaml is authoritative; ignore README.md's `np
 - `pnpm ios` / `pnpm android` — build and run the native dev client (`expo run:ios` / `expo run:android`).
 - `pnpm prebuild:ios` / `pnpm prebuild:android` — regenerate `ios/`/`android/` (`expo prebuild --platform <p> --clean`). Required after changing native config (app.json plugins, adding a native module).
 - `pnpm lint` / `pnpm lint:fix` — runs `expo lint` (flat ESLint config in `eslint.config.js`; see Code style below).
+- `pnpm test` / `pnpm test:watch` — runs Jest (`jest-expo` preset). See Testing below.
 
 ## Architecture
 
@@ -63,9 +64,9 @@ No API client exists yet. Target shape once one is built:
 - `API_URL` / `API_SECRET_KEY` env vars, called directly from the RN client (no BFF/server layer) via a `shared/api` client, authenticated with a Clerk bearer token per request.
 - No Upstash Redis / guest-vs-user branching — open decision, not solved yet; don't build it speculatively.
 
-# Testing (planned)
+# Testing
 
-No test runner installed yet. When one is added, colocate tests as `__tests__/*.test.ts(x)` next to the source they cover.
+`jest-expo` preset + `@testing-library/react-native`. `pnpm test` / `pnpm test:watch`. Tests are colocated as `__tests__/*.test.ts(x)` next to the source they cover — see `src/shared/notifications/__tests__/register-for-push-notifications-async.test.ts` for the house pattern (AAA structure, `jest.mock`/`jest.doMock` for Expo native modules, `Object.defineProperty(Platform, "OS", ...)` for platform-branching code). The `qa` agent owns writing these.
 
 # Code style
 
