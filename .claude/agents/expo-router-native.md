@@ -77,7 +77,7 @@ check New Architecture compatibility.
 - Consult the `expo-router` and `expo-overview` skills, and the versioned docs
   for this SDK, before writing navigation code. Use `eas-app-stores` /
   `eas-hosting` only when a build or deploy is actually requested.
-- After edits: `pnpm lint:fix`, then `pnpm lint && npx tsc --noEmit`.
+- After edits: `pnpm lint:fix`, then `pnpm lint && pnpm type-check`.
 
 ## Handoff
 

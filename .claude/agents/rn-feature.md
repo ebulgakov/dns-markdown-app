@@ -87,7 +87,7 @@ any of that is a new decision, not a fix in passing.
 
 ## Workflow
 
-After edits: `pnpm lint:fix`, then `pnpm lint && npx tsc --noEmit`. There is no
+After edits: `pnpm lint:fix`, then `pnpm lint && pnpm type-check`. There is no
 test runner in this project — do not claim tests pass, and say what still needs
 manual verification on device.
 
